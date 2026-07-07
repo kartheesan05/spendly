@@ -42,6 +42,7 @@ Carthage/Build/
 .env.*
 Secrets.plist
 Config.local.swift
+Secrets.xcconfig
 
 # Playgrounds
 timeline.xctimeline

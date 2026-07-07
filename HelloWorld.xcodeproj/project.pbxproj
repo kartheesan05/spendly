@@ -74,6 +74,7 @@
 		DEADBEEF0000000000000101 /* TotalSpendWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalSpendWidget.swift; sourceTree = "<group>"; };
 		DEADBEEF0000000000000102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEADBEEF0000000000000103 /* SpendlyWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpendlyWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEADBEEF0000000000000007 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +97,16 @@
 /* Begin PBXGroup section */
 		000000000000000000000014 = {
 			isa = PBXGroup;
-			children = (
-				000000000000000000000015 /* HelloWorld */,
-				DEADBEEF0000000000000104 /* SpendlyWidget */,
-				000000000000000000000016 /* Products */,
-				000000000000000000000017 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		000000000000000000000015 /* HelloWorld */ = {
+		children = (
+			000000000000000000000015 /* HelloWorld */,
+			DEADBEEF0000000000000104 /* SpendlyWidget */,
+			000000000000000000000016 /* Products */,
+			000000000000000000000017 /* Frameworks */,
+			DEADBEEF0000000000000007 /* Secrets.xcconfig */,
+		);
+		sourceTree = "<group>";
+	};
+	000000000000000000000015 /* HelloWorld */ = {
 			isa = PBXGroup;
 			children = (
 				DEADBEEF0000000000000001 /* HelloWorldApp.swift */,
@@ -358,10 +360,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		000000000000000000000006 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+	000000000000000000000006 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		baseConfigurationReference = DEADBEEF0000000000000007 /* Secrets.xcconfig */;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -386,10 +389,11 @@
 			};
 			name = Debug;
 		};
-		000000000000000000000007 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+	000000000000000000000007 /* Release */ = {
+		isa = XCBuildConfiguration;
+		baseConfigurationReference = DEADBEEF0000000000000007 /* Secrets.xcconfig */;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
