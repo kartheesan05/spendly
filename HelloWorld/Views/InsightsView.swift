@@ -32,7 +32,7 @@ struct InsightsView: View {
                         Text(peak.label)
                             .font(.caption.weight(.bold))
                             .padding(.horizontal, 10).padding(.vertical, 4)
-                            .background(Capsule().fill(Color.white.opacity(0.14)))
+                            .background(Capsule().fill(Theme.softFillStrong))
                             .foregroundStyle(.primary)
                     }
                 }
@@ -44,13 +44,13 @@ struct InsightsView: View {
                     .foregroundStyle(
                         vm.weekdayPeak?.label == item.label
                             ? Color(red: 0.30, green: 0.85, blue: 0.55)
-                            : Color.white.opacity(0.5)
+                            : Theme.barDim
                     )
                     .cornerRadius(5)
                 }
                 .chartYAxis {
                     AxisMarks { _ in
-                        AxisGridLine().foregroundStyle(Color.white.opacity(0.08))
+                        AxisGridLine().foregroundStyle(Theme.gridLine)
                         AxisValueLabel().font(.caption2).foregroundStyle(.secondary)
                     }
                 }
@@ -67,10 +67,10 @@ struct InsightsView: View {
                 ForEach(vm.paymentSlices) { slice in
                     HStack(spacing: 14) {
                         ZStack {
-                            Circle().fill(Color.white.opacity(0.12)).frame(width: 40, height: 40)
+                            Circle().fill(Theme.softFill).frame(width: 40, height: 40)
                             Image(systemName: Theme.paymentIcon(for: slice.method))
                                 .font(.system(size: 15, weight: .semibold))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.primary)
                         }
                         VStack(alignment: .leading, spacing: 2) {
                             Text(slice.method).font(.subheadline.weight(.semibold))
@@ -98,7 +98,7 @@ struct InsightsView: View {
                             .foregroundStyle(.secondary)
                             .frame(width: 20)
                         ZStack {
-                            Circle().fill(Color.white.opacity(0.12)).frame(width: 38, height: 38)
+                            Circle().fill(Theme.softFill).frame(width: 38, height: 38)
                             Image(systemName: Theme.icon(for: spend.category))
                                 .font(.system(size: 14, weight: .semibold))
                                 .foregroundStyle(.primary)
@@ -114,7 +114,7 @@ struct InsightsView: View {
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                     }
                     if index < vm.topSpends.count - 1 {
-                        Divider().overlay(Color.white.opacity(0.1))
+                        Divider().overlay(Theme.gridLine)
                     }
                 }
             }

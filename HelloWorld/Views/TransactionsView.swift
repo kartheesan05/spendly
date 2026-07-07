@@ -61,13 +61,13 @@ struct TransactionsView: View {
                         withAnimation(.snappy) { filterCategory = isOn ? nil : slice.category }
                     } label: {
                         HStack(spacing: 6) {
-                            Circle().fill(Color.white.opacity(0.5)).frame(width: 8, height: 8)
+                            Circle().fill(Theme.barDim).frame(width: 8, height: 8)
                             Text(slice.category).font(.caption.weight(.semibold))
                         }
                         .padding(.horizontal, 14).padding(.vertical, 8)
-                        .foregroundStyle(isOn ? .white : .primary)
+                        .foregroundStyle(.primary)
                         .background {
-                            if isOn { Capsule().fill(Color.white.opacity(0.18)) }
+                            if isOn { Capsule().fill(Theme.softFillStrong) }
                         }
                         .glassCell(cornerRadius: 14)
                     }
@@ -92,7 +92,7 @@ struct TransactionsView: View {
     private func row(for spend: Spend) -> some View {
         HStack(spacing: 14) {
             ZStack {
-                Circle().fill(Color.white.opacity(0.12)).frame(width: 42, height: 42)
+                Circle().fill(Theme.softFill).frame(width: 42, height: 42)
                 Image(systemName: Theme.icon(for: spend.category))
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(.primary)

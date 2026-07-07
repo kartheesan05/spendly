@@ -1,5 +1,44 @@
 import SwiftUI
 
+extension Color {
+    static func adaptive(light: Color, dark: Color) -> Color {
+        Color(UIColor { tc in
+            tc.userInterfaceStyle == .dark ? UIColor(dark) : UIColor(light)
+        })
+    }
+}
+
+extension Theme {
+    static let meshTop = Color.adaptive(
+        light: Color(red: 0.96, green: 0.96, blue: 0.98),
+        dark: Color(red: 0.06, green: 0.06, blue: 0.08)
+    )
+    static let meshBottom = Color.adaptive(
+        light: Color(red: 0.86, green: 0.87, blue: 0.92),
+        dark: Color(red: 0.03, green: 0.03, blue: 0.05)
+    )
+    static let softFill = Color.adaptive(
+        light: Color.black.opacity(0.06),
+        dark: Color.white.opacity(0.12)
+    )
+    static let softFillStrong = Color.adaptive(
+        light: Color.black.opacity(0.10),
+        dark: Color.white.opacity(0.18)
+    )
+    static let gridLine = Color.adaptive(
+        light: Color.black.opacity(0.08),
+        dark: Color.white.opacity(0.08)
+    )
+    static let barDim = Color.adaptive(
+        light: Color.black.opacity(0.30),
+        dark: Color.white.opacity(0.50)
+    )
+    static let overlayScrim = Color.adaptive(
+        light: Color.black.opacity(0.15),
+        dark: Color.black.opacity(0.25)
+    )
+}
+
 enum Theme {
     static func color(for category: String) -> Color {
         switch category {

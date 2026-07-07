@@ -10,7 +10,7 @@ struct StatTile: View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack {
                 Circle()
-                    .fill(Color.white.opacity(0.12))
+                    .fill(Theme.softFill)
                     .frame(width: 38, height: 38)
                 Image(systemName: systemImage)
                     .font(.system(size: 16, weight: .semibold))

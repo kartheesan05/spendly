@@ -37,12 +37,12 @@ struct DashboardView: View {
                 } label: {
                     Text(period.rawValue)
                         .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(vm.period == period ? .white : .secondary)
+                        .foregroundStyle(vm.period == period ? .primary : .secondary)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 10)
                         .background {
                             if vm.period == period {
-                                Capsule().fill(.white.opacity(0.18))
+                                Capsule().fill(Theme.softFillStrong)
                             }
                         }
                 }
@@ -163,7 +163,7 @@ struct DashboardView: View {
                         .font(.headline)
                     HStack(spacing: 14) {
                         ZStack {
-                            Circle().fill(Color.white.opacity(0.12)).frame(width: 46, height: 46)
+                            Circle().fill(Theme.softFill).frame(width: 46, height: 46)
                             Image(systemName: Theme.icon(for: biggest.category))
                                 .font(.system(size: 18, weight: .semibold))
                                 .foregroundStyle(.primary)
@@ -190,19 +190,19 @@ struct DashboardView: View {
     private var loadingOverlay: some View {
         if vm.isLoading && vm.spends.isEmpty {
             ZStack {
-                Color.black.opacity(0.25).ignoresSafeArea()
+                Theme.overlayScrim.ignoresSafeArea()
                 VStack(spacing: 14) {
-                    ProgressView().scaleEffect(1.3).tint(.white)
+                    ProgressView().scaleEffect(1.3).tint(.primary)
                     Text("Loading your spends…")
                         .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                 }
                 .padding(28)
                 .glassCell(cornerRadius: 20)
             }
         } else if let error = vm.errorMessage, vm.spends.isEmpty {
             ZStack {
-                Color.black.opacity(0.2).ignoresSafeArea()
+                Theme.overlayScrim.ignoresSafeArea()
                 VStack(spacing: 14) {
                     Image(systemName: "exclamationmark.triangle.fill").font(.largeTitle).foregroundStyle(.secondary)
                     Text("Couldn't load").font(.headline)

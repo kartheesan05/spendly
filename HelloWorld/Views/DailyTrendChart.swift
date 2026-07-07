@@ -25,7 +25,7 @@ struct DailyTrendChart: View {
                 .foregroundStyle(
                     peak?.id == day.id
                         ? Color(red: 1.0, green: 0.42, blue: 0.21)
-                        : Color.white.opacity(0.5)
+                        : Theme.barDim
                 )
                 .cornerRadius(4)
             }
@@ -33,12 +33,12 @@ struct DailyTrendChart: View {
                 AxisMarks(values: .stride(by: .day)) { value in
                     AxisValueLabel(format: .dateTime.day().month(.abbreviated))
                         .font(.caption2)
-                    AxisGridLine().foregroundStyle(Color.white.opacity(0.08))
+                    AxisGridLine().foregroundStyle(Theme.gridLine)
                 }
             }
             .chartYAxis {
                 AxisMarks { _ in
-                    AxisGridLine().foregroundStyle(Color.white.opacity(0.08))
+                    AxisGridLine().foregroundStyle(Theme.gridLine)
                     AxisValueLabel().font(.caption2).foregroundStyle(.secondary)
                 }
             }
