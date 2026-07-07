@@ -4,6 +4,8 @@
 <dict>
 	<key>NOTION_TOKEN</key>
 	<string>$(NOTION_TOKEN)</string>
+	<key>NOTION_DATABASE_ID</key>
+	<string>$(NOTION_DATABASE_ID)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
