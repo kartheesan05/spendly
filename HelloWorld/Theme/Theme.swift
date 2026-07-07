@@ -39,12 +39,9 @@ enum Money {
         f.numberStyle = .currency
         f.currencyCode = "INR"
         f.locale = Locale(identifier: "en_IN")
-        f.maximumFractionDigits = compact ? 0 : 0
         f.maximumFractionDigits = amount.truncatingRemainder(dividingBy: 1) == 0 ? 0 : 2
-        if compact && abs(amount) >= 1000 {
-            f.numberStyle = .currency
-            f.maximumFractionDigits = 1
-            return f.string(from: NSNumber(value: amount)) ?? "₹0"
+        if compact {
+            f.maximumFractionDigits = 0
         }
         return f.string(from: NSNumber(value: amount)) ?? "₹0"
     }

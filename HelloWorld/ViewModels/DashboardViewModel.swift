@@ -174,4 +174,25 @@ final class DashboardViewModel {
         guard let oldest = filteredSpends.map({ $0.date }).min() else { return 0 }
         return (cal.dateComponents([.day], from: cal.startOfDay(for: oldest), to: cal.startOfDay(for: now)).day ?? 0) + 1
     }
+
+    // MARK: - Weekday pattern
+
+    var weekdaySpend: [(index: Int, label: String, amount: Double)] {
+        let symbols = Calendar.current.shortWeekdaySymbols
+        let grouped = Dictionary(grouping: filteredSpends, by: { Calendar.current.component(.weekday, from: $0.date) - 1 })
+        return (0..<7).map { idx in
+            let items = grouped[idx] ?? []
+            return (idx, symbols[idx], items.reduce(0) { $0 + $1.amount })
+        }
+    }
+
+    var topSpends: [Spend] {
+        Array(filteredSpends.sorted(by: { $0.amount > $1.amount }).prefix(5))
+    }
+
+    var weekdayPeak: (label: String, amount: Double)? {
+        let peak = weekdaySpend.max(by: { $0.amount < $1.amount })
+        guard let peak, peak.amount > 0 else { return nil }
+        return (peak.label, peak.amount)
+    }
 }

@@ -1,16 +1,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var vm = DashboardViewModel()
+    @State private var tab: AppTab = .dashboard
+
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, World!")
-                .font(.title)
+        TabView(selection: $tab) {
+            Tab("Dashboard", systemImage: "chart.pie.fill", value: AppTab.dashboard) {
+                DashboardView()
+            }
+            Tab("Insights", systemImage: "sparkles", value: AppTab.insights) {
+                InsightsView()
+            }
+            Tab("Transactions", systemImage: "list.bullet.rectangle.portrait", value: AppTab.transactions) {
+                TransactionsView()
+            }
         }
-        .padding()
+        .environment(vm)
+        .tint(.white)
     }
+}
+
+enum AppTab: String, Hashable {
+    case dashboard, insights, transactions
 }
 
 #Preview {

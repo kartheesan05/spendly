@@ -7,10 +7,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIApplicationSceneManifest</key>
+	<key>NSExtension</key>
 	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.widgetkit-extension</string>
 	</dict>
 </dict>
 </plist>
